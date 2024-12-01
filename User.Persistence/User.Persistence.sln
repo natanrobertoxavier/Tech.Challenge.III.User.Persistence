@@ -3,9 +3,30 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{2FC36AA6-563A-4477-BB2F-9FDF08203540}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{B318DF2C-028F-4857-9C40-084AF6CEC8CD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "solutionitens", "solutionitens", "{CB0D9699-0776-46BE-9ACE-3F1F5129D751}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "User.Persistence.Api", "User.Persistence.Api\User.Persistence.Api.csproj", "{4CA6DA0D-1124-4351-B86E-491CBAEE2CB4}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4CA6DA0D-1124-4351-B86E-491CBAEE2CB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4CA6DA0D-1124-4351-B86E-491CBAEE2CB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4CA6DA0D-1124-4351-B86E-491CBAEE2CB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4CA6DA0D-1124-4351-B86E-491CBAEE2CB4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4CA6DA0D-1124-4351-B86E-491CBAEE2CB4} = {2FC36AA6-563A-4477-BB2F-9FDF08203540}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E1867DB5-483D-41E8-A848-F3686B2E7C16}
