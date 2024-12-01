@@ -1,4 +1,5 @@
 using User.Persistence.Api;
+using User.Persistence.Api.Filters;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +11,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddTokenManager(builder.Configuration);
+
+builder.Services.AddScoped<AuthenticatedUserAttribute>();
 
 var app = builder.Build();
 

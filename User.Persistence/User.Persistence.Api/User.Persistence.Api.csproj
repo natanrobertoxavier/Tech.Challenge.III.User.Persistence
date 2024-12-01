@@ -14,6 +14,7 @@
   <ItemGroup>
     <ProjectReference Include="..\User.Persistence.Application\User.Persistence.Application.csproj" />
     <ProjectReference Include="..\User.Persistence.Communication\User.Persistence.Communication.csproj" />
+    <ProjectReference Include="..\User.Persistence.Exceptions\User.Persistence.Exceptions.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using User.Persistence.Api.Filters;
 using User.Persistence.Application.UseCase.Register;
 using User.Persistence.Communication.Request;
 using User.Persistence.Communication.Response;
@@ -17,4 +18,18 @@ public class UserController : TechChallengeController
 
         return Created(string.Empty, result);
     }
+
+    //[HttpPut]
+    //[Route("change-password")]
+    //[ProducesResponseType(StatusCodes.Status204NoContent)]
+    //[ProducesResponseType(StatusCodes.Status401Unauthorized)]
+    //[ServiceFilter(typeof(AuthenticatedUserAttribute))]
+    //public async Task<IActionResult> ChangePassword(
+    //    [FromServices] IChangePasswordUseCase useCase,
+    //    [FromBody] RequestChangePasswordJson request)
+    //{
+    //    await useCase.Execute(request);
+
+    //    return NoContent();
+    //}
 }
