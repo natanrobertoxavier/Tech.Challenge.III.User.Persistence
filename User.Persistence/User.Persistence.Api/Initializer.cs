@@ -1,5 +1,4 @@
-﻿using System.Runtime.CompilerServices;
-using TokenService.Manager.Controller;
+﻿using TokenService.Manager.Controller;
 
 namespace User.Persistence.Api;
 
