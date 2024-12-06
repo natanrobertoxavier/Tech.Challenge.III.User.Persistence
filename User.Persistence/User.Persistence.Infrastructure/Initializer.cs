@@ -20,7 +20,6 @@ public static class Initializer
         AddServices(services);
         AddWorkUnit(services);
         RegisterServices(services, configurationManager);
-        //AddSerilog(services);
     }
     
     private static void AddWorkUnit(IServiceCollection services)
@@ -71,13 +70,4 @@ public static class Initializer
             client.DefaultRequestHeaders.Add("Accept", "application/json");
         });
     }
-
-    //private static void AddSerilog(IServiceCollection services)
-    //{
-    //    Log.Logger = new LoggerConfiguration()
-    //        .WriteTo.Console()
-    //        .CreateLogger();
-
-    //    services.AddSingleton<ILogger>(Log.Logger);
-    //}
 }

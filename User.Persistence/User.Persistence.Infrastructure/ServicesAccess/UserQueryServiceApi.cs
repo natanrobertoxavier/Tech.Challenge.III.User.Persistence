@@ -4,10 +4,11 @@ using User.Persistence.Domain.Services;
 
 namespace User.Persistence.Infrastructure.ServicesAccess;
 public class UserQueryServiceApi(
-    IHttpClientFactory httpClientFactory) : IUserQueryServiceApi
+    IHttpClientFactory httpClientFactory,
+    ILogger logger) : IUserQueryServiceApi
 {
     private readonly IHttpClientFactory _httpClientFactory = httpClientFactory;
-    //private readonly ILogger _logger = logger;
+    private readonly ILogger _logger = logger;
 
     public async Task<Result<ThereIsUserResult>> ThereIsUserWithEmailAsync(string email)
     {
