@@ -61,6 +61,42 @@ namespace User.Persistence.Exceptions {
         }
 
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a E-mail do usuário em branco.
+        /// </summary>
+        public static string BlankUserEmail {
+            get {
+                return ResourceManager.GetString("BlankUserEmail", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Nome do usuário em branco.
+        /// </summary>
+        public static string BlankUserName {
+            get {
+                return ResourceManager.GetString("BlankUserName", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Senha do usuário em branco.
+        /// </summary>
+        public static string BlankUserPassword {
+            get {
+                return ResourceManager.GetString("BlankUserPassword", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Email já cadastrado.
+        /// </summary>
+        public static string EmailAlreadyRegistered {
+            get {
+                return ResourceManager.GetString("EmailAlreadyRegistered", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Token expirado.
         /// </summary>
         public static string ExpiredToken {
@@ -70,7 +106,7 @@ namespace User.Persistence.Exceptions {
         }
 
         /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a E-mail ou senha incorretos.
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Email ou senha incorretos.
         /// </summary>
         public static string InvalidLogin {
             get {
@@ -80,6 +116,33 @@ namespace User.Persistence.Exceptions {
 
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Usuário sem permissão.
+        /// </summary>
+        public static string InvalidUserEmail {
+            get {
+                return ResourceManager.GetString("InvalidUserEmail", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Senha deve conter ao menos seis caracteres.
+        /// </summary>
+        public static string MinimumSixCharacters {
+            get {
+                return ResourceManager.GetString("MinimumSixCharacters", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Erro desconhecido.
+        /// </summary>
+        public static string UnknowError {
+            get {
+                return ResourceManager.GetString("UnknowError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Email do usuário é inválido.
         /// </summary>
         public static string UserWithoutPermission {
             get {
