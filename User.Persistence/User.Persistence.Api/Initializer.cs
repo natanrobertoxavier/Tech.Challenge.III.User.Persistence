@@ -1,7 +1,7 @@
 ﻿using Serilog;
 using TokenService.Manager.Controller;
-using User.Persistence.Api.Settings;
-using static System.Net.WebRequestMethods;
+using RabbitMq.Package.Settings;
+using User.Persistence.Infrastructure.Queue;
 
 namespace User.Persistence.Api;
 
@@ -48,9 +48,13 @@ public static class Initializer
             .AddQueueHandler(config.ComposedConnectionString)
             .DeclareQueues(
                 new RabbitMqQueue(
-                    exchangeName: "Exchange-Teste",
-                    routingKeyName: "RoutingKey-Teste",
-                    queueName: "QueueName-Teste")
+                    exchangeName: RabbitMqConstants.UserPersistenceExchange,
+                    routingKeyName: RabbitMqConstants.RegisterUserRoutingKey,
+                    queueName: RabbitMqConstants.RegisterUserQueueName),
+                new RabbitMqQueue(
+                    exchangeName: RabbitMqConstants.UserPersistenceExchange,
+                    routingKeyName: RabbitMqConstants.ChangePasswordUserRoutingKey,
+                    queueName: RabbitMqConstants.ChangePasswordUserQueueName)
                 )
             ;
     }
