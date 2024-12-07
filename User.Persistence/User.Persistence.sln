@@ -8,6 +8,11 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{B318DF2C-028F-4857-9C40-084AF6CEC8CD}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "solutionitens", "solutionitens", "{CB0D9699-0776-46BE-9ACE-3F1F5129D751}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.yaml = docker-compose.yaml
+		Dockerfile = Dockerfile
+		..\.github\workflows\pipeline.yaml = ..\.github\workflows\pipeline.yaml
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "User.Persistence.Api", "User.Persistence.Api\User.Persistence.Api.csproj", "{4CA6DA0D-1124-4351-B86E-491CBAEE2CB4}"
 EndProject
@@ -26,6 +31,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "User.Persistence.Infrastructure", "User.Persistence.Infrastructure\User.Persistence.Infrastructure.csproj", "{B456E46B-0177-443E-885D-A3715B4495E1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "User.Persistence.Tests", "User.Persistence.Tests\User.Persistence.Tests.csproj", "{441703D9-359D-4AC8-B8AC-5A916945C66B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "User.Persistence.Integration.Tests", "User.Persistence.Integration.Tests\User.Persistence.Integration.Tests.csproj", "{D45C7195-5559-468C-A6A3-A5F918D21D17}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -61,6 +68,10 @@ Global
 		{441703D9-359D-4AC8-B8AC-5A916945C66B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{441703D9-359D-4AC8-B8AC-5A916945C66B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{441703D9-359D-4AC8-B8AC-5A916945C66B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D45C7195-5559-468C-A6A3-A5F918D21D17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D45C7195-5559-468C-A6A3-A5F918D21D17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D45C7195-5559-468C-A6A3-A5F918D21D17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D45C7195-5559-468C-A6A3-A5F918D21D17}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -75,6 +86,7 @@ Global
 		{9D9D654F-DE95-4EF0-894A-246EFE655C52} = {7C6985B9-EB1B-435A-BB08-B0B5B0A1E754}
 		{B456E46B-0177-443E-885D-A3715B4495E1} = {7C6985B9-EB1B-435A-BB08-B0B5B0A1E754}
 		{441703D9-359D-4AC8-B8AC-5A916945C66B} = {B318DF2C-028F-4857-9C40-084AF6CEC8CD}
+		{D45C7195-5559-468C-A6A3-A5F918D21D17} = {B318DF2C-028F-4857-9C40-084AF6CEC8CD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E1867DB5-483D-41E8-A848-F3686B2E7C16}

@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  myapp:
+    image: userquery:latest
+    container_name: userpersistence_container
+    ports:
+      - "5285:80"
+    environment:
+      ASPNETCORE_ENVIRONMENT: "HML"
