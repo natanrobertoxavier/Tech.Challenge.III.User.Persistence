@@ -45,10 +45,10 @@ jobs:
       run: dotnet restore User.Persistence/User.Persistence.sln
 
     - name: Build the project
-      run: dotnet build User.persistence/User.Persistence.sln --no-restore --configuration Release
+      run: dotnet build User.Persistence/User.Persistence.sln --no-restore --configuration Release
 
     - name: Run unit tests
-      run: dotnet test User.persistence/User.Persistence.Tests/User.Persistence.Tests.csproj --no-build --configuration Release --logger "trx;LogFileName=unit-test-user-Persistence-results.trx"
+      run: dotnet test User.Persistence/User.Persistence.Tests/User.Persistence.Tests.csproj --no-build --configuration Release --logger "trx;LogFileName=unit-test-user-Persistence-results.trx"
 
     - name: Run integration tests
       run: dotnet test User.Persistence/User.Persistence.Integration.Tests/User.Persistence.Integration.Tests.csproj --no-build --configuration Release --logger "trx;LogFileName=integration-test-user-Persistence-results.trx"
