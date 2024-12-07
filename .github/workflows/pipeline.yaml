@@ -60,9 +60,9 @@ jobs:
     - name: Replace appsettings tech.challenge
       run: cp -f /home/natan/appsettings/appsettings.json ${{ github.workspace }}/User.Persistence/User.Persistence.Api/appsettings.json
     
-    - name: Stop and remove existing containers
-      run: |
-        cd User.persistence && docker-compose -f docker-compose.yaml down
+    # - name: Stop and remove existing containers
+    #   run: |
+    #     cd User.persistence && docker-compose -f docker-compose.yaml down
 
     - name: Build Docker image
       run: |
