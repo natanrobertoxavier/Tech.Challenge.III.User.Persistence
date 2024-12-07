@@ -8,14 +8,14 @@
 
   <ItemGroup>
     <PackageReference Include="RabbitMQ.Client" Version="6.0.0" />
-    <PackageReference Include="RabbitMqConfiguration" Version="1.0.4" />
+    <PackageReference Include="RabbitMqConfiguration" Version="1.0.6" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
     <PackageReference Include="TokenService.Manager" Version="1.0.1" />
 	  <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="8.0.7" />
 	  <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 	  <PackageReference Include="prometheus-net.AspNetCore" Version="8.2.1" />
 	  <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
-	  <PackageReference Include="Serilog" Version="4.1.0" />
+	  <PackageReference Include="Serilog" Version="4.2.0" />
 	  <PackageReference Include="Serilog.Sinks.Console" Version="4.1.0" />
   </ItemGroup>
 

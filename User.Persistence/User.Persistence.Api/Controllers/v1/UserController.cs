@@ -14,7 +14,7 @@ public class UserController : TechChallengeController
         [FromServices] IRegisterUserUseCase useCase,
         [FromBody] RequestRegisterUserJson request)
     {
-        var result = await useCase.Execute(request);
+        var result = await useCase.RegisterUser(request);
 
         return Created(string.Empty, result);
     }

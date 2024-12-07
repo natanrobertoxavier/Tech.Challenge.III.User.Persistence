@@ -7,6 +7,8 @@ using User.Persistence.Infrastructure;
 using User.Persistence.Infrastructure.RepositoryAccess;
 using User.Persistence.Domain.Extensions;
 using User.Persistence.Infrastructure.Migrations;
+using Microsoft.Extensions.DependencyInjection;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -59,6 +61,8 @@ builder.Services.AddScoped(provider => new AutoMapper.MapperConfiguration(cfg =>
 builder.Services.AddTokenManager(builder.Configuration);
 
 builder.Services.AddScoped<AuthenticatedUserAttribute>();
+
+builder.Services.AddMediatR(config => config.RegisterServicesFromAssemblies(Assembly.GetExecutingAssembly()));
 
 var app = builder.Build();
 

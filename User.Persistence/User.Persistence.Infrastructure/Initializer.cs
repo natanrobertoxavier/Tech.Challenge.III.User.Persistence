@@ -7,6 +7,7 @@ using System.Reflection;
 using User.Persistence.Domain.Extensions;
 using User.Persistence.Domain.Repositories;
 using User.Persistence.Domain.Services;
+using User.Persistence.Infrastructure.Queue;
 using User.Persistence.Infrastructure.RepositoryAccess;
 using User.Persistence.Infrastructure.ServicesAccess;
 
@@ -18,10 +19,11 @@ public static class Initializer
         AddFluentMigrator(services, configurationManager);
         AddContext(services, configurationManager);
         AddServices(services);
+        AddRabbitMqDispatcher(services);
         AddWorkUnit(services);
         RegisterServices(services, configurationManager);
     }
-    
+
     private static void AddWorkUnit(IServiceCollection services)
     {
         services.AddScoped<IWorkUnit, WorkUnit>();
@@ -58,8 +60,12 @@ public static class Initializer
 
     private static void AddServices(IServiceCollection services)
     {
-        services
-            .AddScoped<IUserQueryServiceApi, UserQueryServiceApi>();
+        services.AddScoped<IUserQueryServiceApi, UserQueryServiceApi>();
+    }
+
+    private static void AddRabbitMqDispatcher(IServiceCollection services)
+    {
+        services.AddScoped<IRabbitMqEventsDispatcher, RabbitMqEventsDispatcher>();
     }
 
     private static void RegisterServices(IServiceCollection services, IConfiguration configurationManager)

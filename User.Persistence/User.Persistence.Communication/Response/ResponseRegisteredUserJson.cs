@@ -1,6 +1,6 @@
 ﻿namespace User.Persistence.Communication.Response;
 
-public class ResponseRegisteredUserJson
+public class ResponseRegisteredUserJson(string message)
 {
-    public string Token { get; set; }
+    public string Message { get; set; } = message;
 }

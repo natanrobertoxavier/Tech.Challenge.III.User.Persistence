@@ -2,8 +2,10 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using TokenService.Manager.Controller;
+using User.Persistence.Application.Interfaces;
 using User.Persistence.Application.Messages;
 using User.Persistence.Application.Messages.Handlers;
+using User.Persistence.Application.Services;
 using User.Persistence.Application.UseCase.Register;
 using User.Persistence.Domain.Messages;
 using User.Persistence.Domain.Messages.DomaiEvents;
@@ -18,6 +20,7 @@ public static class Initializer
         AddJWTToken(services, configuration);
         AddUseCases(services);
         AddDomainEvents(services);
+        AddEvents(services);
     }
 
     private static void AddAdditionalKeyPassword(IServiceCollection services, IConfiguration configuration)
@@ -42,5 +45,10 @@ public static class Initializer
     {
         services.AddScoped<IMessagePublisher, MessagePublisher>();
         services.AddScoped<INotificationHandler<UserCreateDomainEvent>, UserEventHandler>();
+    }
+
+    private static void AddEvents(IServiceCollection services)
+    {
+        services.AddScoped<IEventAppService, EventsAppService>();
     }
 }
