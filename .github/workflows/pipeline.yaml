@@ -42,7 +42,7 @@ jobs:
         dotnet-version: '8.x'
 
     - name: Restore dependencies
-      run: dotnet restore User.persistence/User.Persistence.sln
+      run: dotnet restore User.Persistence/User.Persistence.sln
 
     - name: Build the project
       run: dotnet build User.persistence/User.Persistence.sln --no-restore --configuration Release
