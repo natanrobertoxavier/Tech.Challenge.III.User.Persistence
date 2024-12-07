@@ -4,5 +4,5 @@ using User.Persistence.Communication.Response;
 namespace User.Persistence.Application.UseCase.Register;
 public interface IRegisterUserUseCase
 {
-    Task<Result<ResponseRegisteredUserJson>> RegisterUser(RequestRegisterUserJson request);
+    Task<Result<ResponseRegisteredUserJson>> RegisterUserAsync(RequestRegisterUserJson request);
 }

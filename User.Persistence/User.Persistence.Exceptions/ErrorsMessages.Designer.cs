@@ -106,6 +106,15 @@ namespace User.Persistence.Exceptions {
         }
 
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Senha atual inválida.
+        /// </summary>
+        public static string InvalidCurrentPassword {
+            get {
+                return ResourceManager.GetString("InvalidCurrentPassword", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Email ou senha incorretos.
         /// </summary>
         public static string InvalidLogin {
@@ -140,7 +149,7 @@ namespace User.Persistence.Exceptions {
                 return ResourceManager.GetString("UnknowError", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Email do usuário é inválido.
         /// </summary>

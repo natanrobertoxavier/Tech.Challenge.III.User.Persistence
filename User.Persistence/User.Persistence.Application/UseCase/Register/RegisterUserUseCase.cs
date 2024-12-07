@@ -9,6 +9,7 @@ using User.Persistence.Domain.Repositories;
 using User.Persistence.Domain.Services;
 using User.Persistence.Exceptions;
 using User.Persistence.Exceptions.ExceptionBase;
+using Microsoft.VisualBasic;
 
 namespace User.Persistence.Application.UseCase.Register;
 public class RegisterUserUseCase(
@@ -22,15 +23,15 @@ public class RegisterUserUseCase(
     private readonly PasswordEncryptor _passwordEncryptor = passwordEncryptor;
     private readonly ILogger _logger = logger;
 
-    public async Task<Result<ResponseRegisteredUserJson>> RegisterUser(RequestRegisterUserJson request)
+    public async Task<Result<ResponseRegisteredUserJson>> RegisterUserAsync(RequestRegisterUserJson request)
     {
         var output = new Result<ResponseRegisteredUserJson>();
 
         try
         {
-            _logger.Information($"Start {nameof(RegisterUser)}. User: {request.Name}.");
+            _logger.Information($"Start {nameof(RegisterUserAsync)}. User: {request.Name}.");
 
-            //await Validate(request);
+            await Validate(request);
 
             var encryptedPassword = _passwordEncryptor.Encrypt(request.Password);
 
@@ -41,9 +42,17 @@ public class RegisterUserUseCase(
                 encryptedPassword)
             );
 
-            _logger.Information($"End {nameof(RegisterUser)}. User: {request.Name}.");
+            _logger.Information($"End {nameof(RegisterUserAsync)}. User: {request.Name}.");
 
             return output.Success(new ResponseRegisteredUserJson("Cadastro em processamento."));
+        }
+        catch (ValidationErrorsException ex)
+        {
+            var errorMessage = $"There are validations errors: {string.Concat(string.Join(", ", ex.ErrorMessages), ".")}";
+
+            _logger.Error(ex, errorMessage);
+
+            return output.Failure(ex.ErrorMessages);
         }
         catch (Exception ex)
         {
@@ -51,7 +60,7 @@ public class RegisterUserUseCase(
 
             _logger.Error(ex, errorMessage);
 
-            return output.Failure(errorMessage);
+            return output.Failure(new List<string>() { errorMessage });
         }
     }
 
@@ -65,6 +74,10 @@ public class RegisterUserUseCase(
         if (thereIsUserWithEmail.IsSuccess && thereIsUserWithEmail.Data.ThereIsUser)
         {
             validationResult.Errors.Add(new FluentValidation.Results.ValidationFailure("email", ErrorsMessages.EmailAlreadyRegistered));
+        }
+        else if (!thereIsUserWithEmail.IsSuccess)
+        {
+            validationResult.Errors.Add(new FluentValidation.Results.ValidationFailure("responseApi", $"{thereIsUserWithEmail.Error}"));
         }
 
         if (!validationResult.IsValid)

@@ -6,9 +6,11 @@ using Serilog;
 using System.Reflection;
 using User.Persistence.Domain.Extensions;
 using User.Persistence.Domain.Repositories;
+using User.Persistence.Domain.Repositories.User;
 using User.Persistence.Domain.Services;
 using User.Persistence.Infrastructure.Queue;
 using User.Persistence.Infrastructure.RepositoryAccess;
+using User.Persistence.Infrastructure.RepositoryAccess.User;
 using User.Persistence.Infrastructure.ServicesAccess;
 
 namespace User.Persistence.Infrastructure;
@@ -22,6 +24,7 @@ public static class Initializer
         AddRabbitMqDispatcher(services);
         AddWorkUnit(services);
         RegisterServices(services, configurationManager);
+        AddRepositories(services);
     }
 
     private static void AddWorkUnit(IServiceCollection services)
@@ -75,5 +78,10 @@ public static class Initializer
             client.BaseAddress = new Uri(configurationManager.GetSection("ServicesApiAddress:UserQueryApi").Value);
             client.DefaultRequestHeaders.Add("Accept", "application/json");
         });
+    }
+
+    private static void AddRepositories(IServiceCollection services)
+    {
+        services.AddScoped<IUserUpdateOnlyRepository, UserRepository>();
     }
 }

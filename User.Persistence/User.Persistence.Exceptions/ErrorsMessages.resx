@@ -147,4 +147,7 @@
   <data name="UnknowError" xml:space="preserve">
     <value>Erro desconhecido</value>
   </data>
+  <data name="InvalidCurrentPassword" xml:space="preserve">
+    <value>Senha atual inválida</value>
+  </data>
 </root>
