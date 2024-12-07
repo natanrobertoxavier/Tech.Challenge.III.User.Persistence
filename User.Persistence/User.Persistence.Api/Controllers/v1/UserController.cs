@@ -10,8 +10,8 @@ namespace User.Persistence.Api.Controllers.v1;
 public class UserController : TechChallengeController
 {
     [HttpPost]
-    [ProducesResponseType(typeof(ResponseRegisteredUserJson), StatusCodes.Status200OK)]
-    public async Task<IActionResult> RegisterUser(
+    [ProducesResponseType(typeof(Result<MessageResult>), StatusCodes.Status200OK)]
+    public async Task<IActionResult> RegisterUserAsync(
         [FromServices] IRegisterUserUseCase useCase,
         [FromBody] RequestRegisterUserJson request)
     {
@@ -22,7 +22,7 @@ public class UserController : TechChallengeController
 
     [HttpPut]
     [Route("change-password")]
-    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(Result<MessageResult>), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status401Unauthorized)]
     [ServiceFilter(typeof(AuthenticatedUserAttribute))]
     public async Task<IActionResult> ChangePassword(

@@ -23,9 +23,9 @@ public class RegisterUserUseCase(
     private readonly PasswordEncryptor _passwordEncryptor = passwordEncryptor;
     private readonly ILogger _logger = logger;
 
-    public async Task<Result<ResponseRegisteredUserJson>> RegisterUserAsync(RequestRegisterUserJson request)
+    public async Task<Result<MessageResult>> RegisterUserAsync(RequestRegisterUserJson request)
     {
-        var output = new Result<ResponseRegisteredUserJson>();
+        var output = new Result<MessageResult>();
 
         try
         {
@@ -44,7 +44,7 @@ public class RegisterUserUseCase(
 
             _logger.Information($"End {nameof(RegisterUserAsync)}. User: {request.Name}.");
 
-            return output.Success(new ResponseRegisteredUserJson("Cadastro em processamento."));
+            return output.Success(new MessageResult("Cadastro em processamento."));
         }
         catch (ValidationErrorsException ex)
         {
