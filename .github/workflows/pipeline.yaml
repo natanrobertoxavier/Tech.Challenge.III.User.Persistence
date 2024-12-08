@@ -31,10 +31,10 @@ jobs:
     #   uses: actions/setup-dotnet@v3
     #   with:
     #     dotnet-version: '8.x'
-
-    - name: Replace appsettings tech.challenge
-      run: cp -f /home/natan/appsettings/appsettings.json ${{ github.workspace }}/User.Persistence/User.Persistence.Api/appsettings.json
     
+    - name: Restore dependencies
+      run: dotnet restore User.Persistence/User.Persistence.sln
+      
     - name: Build the project
       run: dotnet build User.Persistence/User.Persistence.sln --no-restore --configuration Release
 
@@ -48,9 +48,9 @@ jobs:
       if: github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/heads/release/')
       run: dotnet publish User.Persistence/User.Persistence.sln --no-build --configuration Release --output ${{ github.workspace }}/publish
       
-    - name: Restore dependencies
-      run: dotnet restore User.Persistence/User.Persistence.sln
-      
+    - name: Replace appsettings tech.challenge
+      run: cp -f /home/natan/appsettings/appsettings.json ${{ github.workspace }}/User.Persistence/User.Persistence.Api/appsettings.json
+    
     - name: Stop and remove existing containers
       run: |
         cd User.Persistence && docker-compose -f docker-compose.yaml down
