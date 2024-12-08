@@ -26,6 +26,9 @@ jobs:
     - name: Check running user
       run: whoami
 
+    - name: Verificar Conectividade
+      run: curl -v https://dotnet.microsoft.com
+
     - name: Setup .NET SDK 8.x
       uses: actions/setup-dotnet@v3
       with:
