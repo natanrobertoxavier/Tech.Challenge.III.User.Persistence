@@ -11,14 +11,14 @@ jobs:
     runs-on: self-hosted
 
     steps:
-    # - name: Backup existing code and logs
-    #   run: |
-    #     TIMESTAMP=$(date +"%Y-%m-%d-%H:%M:%S")
-    #     CONTAINER_NAME="userpersistence_container"
-    #     LOG_FILE="/home/natan/backups/user-persistence-logs-$TIMESTAMP.log"
-    #     docker logs $CONTAINER_NAME > $LOG_FILE        
-    #     zip -r /home/natan/backups/user-persistence-backup-$TIMESTAMP.zip ${{ github.workspace }} $LOG_FILE
-    #     rm $LOG_FILE
+    - name: Backup existing code and logs
+      run: |
+        TIMESTAMP=$(date +"%Y-%m-%d-%H:%M:%S")
+        CONTAINER_NAME="userpersistence_container"
+        LOG_FILE="/home/natan/backups/user-persistence-logs-$TIMESTAMP.log"
+        docker logs $CONTAINER_NAME > $LOG_FILE        
+        zip -r /home/natan/backups/user-persistence-backup-$TIMESTAMP.zip ${{ github.workspace }} $LOG_FILE
+        rm $LOG_FILE
 
     - name: Checkout code
       uses: actions/checkout@v2
@@ -32,9 +32,6 @@ jobs:
     #   with:
     #     dotnet-version: '8.x'
 
-    - name: Restore dependencies
-      run: dotnet restore User.Persistence/User.Persistence.sln
-      
     - name: Replace appsettings tech.challenge
       run: cp -f /home/natan/appsettings/appsettings.json ${{ github.workspace }}/User.Persistence/User.Persistence.Api/appsettings.json
     
@@ -50,7 +47,10 @@ jobs:
     - name: Publish the project
       if: github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/heads/release/')
       run: dotnet publish User.Persistence/User.Persistence.sln --no-build --configuration Release --output ${{ github.workspace }}/publish
-
+      
+    - name: Restore dependencies
+      run: dotnet restore User.Persistence/User.Persistence.sln
+      
     - name: Stop and remove existing containers
       run: |
         cd User.Persistence && docker-compose -f docker-compose.yaml down
