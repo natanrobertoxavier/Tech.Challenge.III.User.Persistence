@@ -43,7 +43,7 @@ public static class Initializer
         var config = new RabbitMqSettings();
 
         configuration.GetSection("RabbitMqSettings").Bind(config);
-
+        Console.WriteLine("######################################    -" + config.ComposedConnectionString);
         services
             .AddQueueHandler(config.ComposedConnectionString)
             .DeclareQueues(
