@@ -56,7 +56,7 @@ jobs:
 
     - name: Build Docker image
       run: |
-        cd User.persistence && sudo docker build -t userpersistence:latest .
+        cd User.Persistence && sudo docker build -t userpersistence:latest .
 
     - name: Deploy using Docker Compose
       run: |
