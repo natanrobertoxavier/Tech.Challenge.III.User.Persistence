@@ -30,9 +30,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "User.Persistence.Domain", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "User.Persistence.Infrastructure", "User.Persistence.Infrastructure\User.Persistence.Infrastructure.csproj", "{B456E46B-0177-443E-885D-A3715B4495E1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "User.Persistence.Tests", "User.Persistence.Tests\User.Persistence.Tests.csproj", "{441703D9-359D-4AC8-B8AC-5A916945C66B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "User.Persistence.Tests", "User.Persistence.Tests\User.Persistence.Tests.csproj", "{441703D9-359D-4AC8-B8AC-5A916945C66B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "User.Persistence.Integration.Tests", "User.Persistence.Integration.Tests\User.Persistence.Integration.Tests.csproj", "{D45C7195-5559-468C-A6A3-A5F918D21D17}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "User.Persistence.Integration.Tests", "User.Persistence.Integration.Tests\User.Persistence.Integration.Tests.csproj", "{D45C7195-5559-468C-A6A3-A5F918D21D17}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

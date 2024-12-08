@@ -1,7 +1,7 @@
 version: '3.8'
 
 services:
-  myapp:
+  userpersistenceapi:
     image: userquery:latest
     container_name: userpersistence_container
     ports:
@@ -13,4 +13,4 @@ services:
 
 networks:
   techchallengenetwork:
-    driver: bridge
+    external: true
