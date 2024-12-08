@@ -29,10 +29,10 @@ jobs:
     - name: Verificar Conectividade
       run: curl -v https://dotnet.microsoft.com
 
-    - name: Setup .NET SDK 8.x
-      uses: actions/setup-dotnet@v3
-      with:
-        dotnet-version: '8.x'
+    # - name: Setup .NET SDK 8.x
+    #   uses: actions/setup-dotnet@v3
+    #   with:
+    #     dotnet-version: '8.x'
 
     - name: Restore dependencies
       run: dotnet restore User.Persistence/User.Persistence.sln
