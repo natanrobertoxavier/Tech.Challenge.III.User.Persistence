@@ -12,5 +12,5 @@ services:
       - techchallengenetwork
 
 networks:
-  mynetwork:
+  techchallengenetwork:
     driver: bridge
