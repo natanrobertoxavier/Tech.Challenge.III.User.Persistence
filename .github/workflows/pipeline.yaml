@@ -12,7 +12,7 @@ jobs:
 
     steps:
     - name: Backup existing code and logs
-      run: whoami
+      run: |
         TIMESTAMP=$(date +"%Y-%m-%d-%H:%M:%S")
         CONTAINER_NAME="userpersistence_container"
         LOG_FILE="/home/natan/backups/user-persistence-logs-$TIMESTAMP.log"
