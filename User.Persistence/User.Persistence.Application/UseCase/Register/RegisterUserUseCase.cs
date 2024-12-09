@@ -1,15 +1,12 @@
-﻿using Serilog;
-using MediatR;
+﻿using MediatR;
+using Serilog;
 using TokenService.Manager.Controller;
-using User.Persistence.Application.Events;
 using User.Persistence.Communication.Request;
 using User.Persistence.Communication.Response;
 using User.Persistence.Domain.Messages.DomaiEvents;
-using User.Persistence.Domain.Repositories;
 using User.Persistence.Domain.Services;
 using User.Persistence.Exceptions;
 using User.Persistence.Exceptions.ExceptionBase;
-using Microsoft.VisualBasic;
 
 namespace User.Persistence.Application.UseCase.Register;
 public class RegisterUserUseCase(
