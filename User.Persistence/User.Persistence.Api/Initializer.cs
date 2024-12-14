@@ -50,11 +50,7 @@ public static class Initializer
                 new RabbitMqQueue(
                     exchangeName: RabbitMqConstants.UserPersistenceExchange,
                     routingKeyName: RabbitMqConstants.RegisterUserRoutingKey,
-                    queueName: RabbitMqConstants.RegisterUserQueueName),
-                new RabbitMqQueue(
-                    exchangeName: RabbitMqConstants.UserPersistenceExchange,
-                    routingKeyName: RabbitMqConstants.ChangePasswordUserRoutingKey,
-                    queueName: RabbitMqConstants.ChangePasswordUserQueueName)
+                    queueName: RabbitMqConstants.RegisterUserQueueName)
                 )
             ;
     }
