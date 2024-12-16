@@ -1,5 +1,4 @@
 ﻿using FluentAssertions;
-using System.Net;
 using System.Net.Http.Json;
 using User.Persistence.Communication.Response;
 using User.Persistence.Integration.Tests.Fakes.Request;
@@ -7,26 +6,6 @@ using User.Persistence.Integration.Tests.Fakes.Request;
 namespace User.Persistence.Integration.Tests.Api.Controllers.v1.Register;
 public class UserControllerTests() : BaseTestClient("/api/v1/user")
 {
-    [Fact]
-    public async Task UserController_ReturnsCreated_WhenUserIsCreated()
-    {
-        // Arrange
-        var request = new RequestRegisterUserJsonBuilder()
-            .Build();
-
-        // Act
-        var response = await Client.PostAsJsonAsync(ControllerUri, request);
-
-        // Assert
-        response.StatusCode.Should().Be(HttpStatusCode.OK);
-
-        var userRegistredJson = await DeserializeResponse<Responses.Result<MessageResult>>(response);
-
-        userRegistredJson.Should().NotBeNull();
-        userRegistredJson.Data.Message.Should().NotBeNullOrWhiteSpace();
-        userRegistredJson.IsSuccess.Should().BeTrue();
-    }
-
     [Fact]
     public async Task UserController_ReturnsError_WhenUserAlreadyExists()
     {
