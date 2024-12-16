@@ -2,8 +2,8 @@
 public class User(
     Guid id,
     DateTime registrationDate,
-    string name, 
-    string email, 
+    string name,
+    string email,
     string password) : BaseEntity(id, registrationDate)
 {
     public string Name { get; set; } = name;

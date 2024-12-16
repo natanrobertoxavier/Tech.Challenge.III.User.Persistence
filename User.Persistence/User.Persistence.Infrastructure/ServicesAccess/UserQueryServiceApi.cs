@@ -13,7 +13,7 @@ public class UserQueryServiceApi(
     public async Task<Result<ThereIsUserResult>> ThereIsUserWithEmailAsync(string email)
     {
         _logger.Information($"{nameof(ThereIsUserWithEmailAsync)} - Initiating call to User.Query Api. User: {email}.");
-        
+
         var output = new Result<ThereIsUserResult>();
 
         try
@@ -21,17 +21,17 @@ public class UserQueryServiceApi(
             var client = _httpClientFactory.CreateClient("UserQueryApi");
 
             var uri = string.Format("/api/v1/user/there-is-user/{0}", email);
-            
+
             var response = await client.GetAsync(uri);
 
             if (response.IsSuccessStatusCode)
             {
                 var content = await response.Content.ReadAsStringAsync();
-                
+
                 var responseApi = DeserializeResponseObject<Result<ThereIsUserResult>>(content);
 
                 _logger.Information($"{nameof(ThereIsUserWithEmailAsync)} - Ended call to User.Query Api. User: {email}.");
-               
+
                 return responseApi;
             }
 
@@ -44,7 +44,7 @@ public class UserQueryServiceApi(
         catch (Exception ex)
         {
             var errorMessage = $"{nameof(ThereIsUserWithEmailAsync)} - An error occurred when calling the Users.Query Api. Error: {ex.Message}";
-            
+
             _logger.Error(errorMessage);
 
             return output.Failure(errorMessage);

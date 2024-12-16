@@ -8,12 +8,11 @@ using User.Persistence.Communication.Response;
 using User.Persistence.Domain.Services;
 using User.Persistence.Exceptions;
 using User.Persistence.Exceptions.ExceptionBase;
-using User.Persistence.Infrastructure.ServicesAccess;
 
 namespace User.Persistence.Api.Filters;
 
 public class AuthenticatedUserAttribute(
-    TokenController tokenController, 
+    TokenController tokenController,
     IUserQueryServiceApi userQueryServiceApi) : AuthorizeAttribute, IAsyncAuthorizationFilter
 {
     private readonly TokenController _tokenController = tokenController;

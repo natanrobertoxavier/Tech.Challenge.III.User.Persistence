@@ -1,14 +1,13 @@
 using Prometheus;
+using System.Reflection;
 using User.Persistence.Api;
 using User.Persistence.Api.Automapper;
 using User.Persistence.Api.Filters;
 using User.Persistence.Application;
-using User.Persistence.Infrastructure;
-using User.Persistence.Infrastructure.RepositoryAccess;
 using User.Persistence.Domain.Extensions;
+using User.Persistence.Infrastructure;
 using User.Persistence.Infrastructure.Migrations;
-using Microsoft.Extensions.DependencyInjection;
-using System.Reflection;
+using User.Persistence.Infrastructure.RepositoryAccess;
 
 var builder = WebApplication.CreateBuilder(args);
 

@@ -1,6 +1,6 @@
-﻿using Serilog;
+﻿using RabbitMq.Package.Settings;
+using Serilog;
 using TokenService.Manager.Controller;
-using RabbitMq.Package.Settings;
 using User.Persistence.Infrastructure.Queue;
 
 namespace User.Persistence.Api;

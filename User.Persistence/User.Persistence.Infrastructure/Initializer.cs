@@ -2,7 +2,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Serilog;
 using System.Reflection;
 using User.Persistence.Domain.Extensions;
 using User.Persistence.Domain.Repositories;

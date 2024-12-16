@@ -2,7 +2,6 @@
 using System.Net;
 using System.Net.Http.Json;
 using User.Persistence.Communication.Response;
-using User.Persistence.Exceptions;
 using User.Persistence.Integration.Tests.Fakes.Request;
 
 namespace User.Persistence.Integration.Tests.Api.Controllers.v1.Register;

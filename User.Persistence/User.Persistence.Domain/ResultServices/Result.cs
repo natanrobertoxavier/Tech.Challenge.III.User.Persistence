@@ -15,8 +15,8 @@ public class Result<T>
     public Result() { }
 
     public Result(
-        T data, 
-        bool isSuccess, 
+        T data,
+        bool isSuccess,
         string error)
     {
         Data = data;

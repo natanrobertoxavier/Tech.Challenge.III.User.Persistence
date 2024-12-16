@@ -1,6 +1,4 @@
-﻿using System.Xml.Linq;
-
-namespace User.Persistence.Application.Events;
+﻿namespace User.Persistence.Application.Events;
 public class OnUserCreateMessage(
     Guid id,
     string name,

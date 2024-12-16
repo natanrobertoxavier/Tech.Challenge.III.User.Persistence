@@ -1,11 +1,10 @@
-﻿using Moq;
+﻿using FluentAssertions;
+using Moq;
+using RichardSzalay.MockHttp;
 using Serilog;
 using System.Net;
-using FluentAssertions;
 using User.Persistence.Domain.ResultServices;
 using User.Persistence.Infrastructure.ServicesAccess;
-using RichardSzalay.MockHttp;
-using Newtonsoft.Json;
 
 namespace User.Persistence.Tests.ServicesAccess;
 public class UserQueryServiceApiTests
@@ -29,7 +28,7 @@ public class UserQueryServiceApiTests
         var email = "test@example.com";
 
         var apiResponse = new Result<ThereIsUserResult>(new ThereIsUserResult() { ThereIsUser = true }, true, string.Empty);
-        
+
         var jsonResponse = System.Text.Json.JsonSerializer.Serialize(apiResponse);
 
         var httpResponseMessage = new HttpResponseMessage
@@ -108,9 +107,9 @@ public class UserQueryServiceApiTests
         // Arrange
         var email = "test@example.com";
 
-        var apiResponse = new Result<UserResult>(new UserResult() 
+        var apiResponse = new Result<UserResult>(new UserResult()
         {
-            Id =  Guid.NewGuid(),
+            Id = Guid.NewGuid(),
             RegistrationDate = DateTime.UtcNow,
             Name = "John Cena",
             Email = email,

@@ -6,7 +6,7 @@ using User.Persistence.Infrastructure.Queue;
 
 namespace User.Persistence.Application.Services;
 public class EventsAppService(
-    IRabbitMqEventsDispatcher rabbitMqEventsDispatcher, 
+    IRabbitMqEventsDispatcher rabbitMqEventsDispatcher,
     IMapper mapper) : IEventAppService
 {
     private readonly IRabbitMqEventsDispatcher _rabbitMqEventsDispatcher = rabbitMqEventsDispatcher;

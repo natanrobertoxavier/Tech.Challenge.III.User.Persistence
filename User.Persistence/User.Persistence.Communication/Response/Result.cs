@@ -1,6 +1,4 @@
-﻿using static System.Runtime.InteropServices.JavaScript.JSType;
-
-namespace User.Persistence.Communication.Response;
+﻿namespace User.Persistence.Communication.Response;
 public struct Result<T>(
     T value,
     bool isSuccess,

@@ -1,12 +1,12 @@
-﻿using TokenService.Manager.Controller;
-using User.Persistence.Communication.Request;
-using User.Persistence.Domain.Repositories;
-using User.Persistence.Exceptions.ExceptionBase;
-using User.Persistence.Exceptions;
+﻿using Serilog;
+using TokenService.Manager.Controller;
 using User.Persistence.Application.Services.LoggedUser;
-using Serilog;
+using User.Persistence.Communication.Request;
 using User.Persistence.Communication.Response;
+using User.Persistence.Domain.Repositories;
 using User.Persistence.Domain.Repositories.User;
+using User.Persistence.Exceptions;
+using User.Persistence.Exceptions.ExceptionBase;
 
 namespace User.Persistence.Application.UseCase.ChangePassword;
 public class ChangePasswordUseCase(

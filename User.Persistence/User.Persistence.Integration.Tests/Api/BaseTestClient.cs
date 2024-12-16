@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc.Testing;
 using Newtonsoft.Json;
 using System.Text;
-using System.Text.Json;
 using TokenService.Manager.Controller;
 
 namespace User.Persistence.Integration.Tests.Api;

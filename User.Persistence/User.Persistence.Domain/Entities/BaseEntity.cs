@@ -2,7 +2,7 @@
 public class BaseEntity
 {
     public BaseEntity(
-        Guid id, 
+        Guid id,
         DateTime registrationDate)
     {
         Id = id;
